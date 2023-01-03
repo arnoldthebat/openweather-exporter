@@ -1,5 +1,5 @@
 image:
-  repository: billykwooten/openweather-exporter
+  repository: arnoldthebat/openweather-exporter
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart version.
   tag: "latest"
@@ -39,6 +39,6 @@ ow:
   # ow.city -- City/Location in which to gather weather metrics. Separate multiple locations with | for example "New York, NY|Seattle, WA"
   city: "New York, NY"
   # ow.degreesUnit -- Unit in which to show metrics (Kelvin, Fahrenheit or Celsius)
-  degreesUnit: "F"
+  degreesUnit: "C"
   # ow.language -- Language in which to show metrics
   language: "EN"

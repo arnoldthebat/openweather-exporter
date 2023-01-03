@@ -2,11 +2,11 @@
 # Build Container Creation
 ########################
 
-FROM golang:1.17 as build
+FROM golang:1.19.4 as build
 
 ARG LD_FLAGS
 
-WORKDIR /go/src/github.com/billykwooten/openweather-exporter
+WORKDIR /go/src/github.com/arnoldthebat/openweather-exporter
 COPY . .
 
 RUN go version

@@ -1,4 +1,4 @@
-// Copyright 2020 Billy Wooten
+// Copyright 2020 Billy Wooten et al
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -19,7 +19,7 @@ import (
 
 	log "github.com/sirupsen/logrus"
 
-	"github.com/billykwooten/openweather-exporter/collector"
+	"github.com/arnoldthebat/openweather-exporter/collector"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"gopkg.in/alecthomas/kingpin.v2"

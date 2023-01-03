@@ -1,4 +1,4 @@
-// Copyright 2020 Billy Wooten
+// Copyright 2020 Billy Wooten et al
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -18,11 +18,11 @@ import (
 	"strings"
 	"time"
 
+	"github.com/arnoldthebat/openweather-exporter/geo"
 	"github.com/codingsince1985/geo-golang/openstreetmap"
 	log "github.com/sirupsen/logrus"
 
-	"github.com/billykwooten/openweather-exporter/geo"
-	owm "github.com/billykwooten/openweathermap"
+	owm "github.com/briandowns/openweathermap"
 	"github.com/prometheus/client_golang/prometheus"
 )
 
@@ -99,11 +99,11 @@ func NewOpenweatherCollector(degreesUnit string, language string, apikey string,
 			[]string{"location"}, nil,
 		),
 		rain1h: prometheus.NewDesc("openweather_rain1h",
-			"Rain volume for last hour, in millimeters",
+			"Rain volume for last hour, in millimetres",
 			[]string{"location"}, nil,
 		),
 		snow1h: prometheus.NewDesc("openweather_snow1h",
-			"Snow volume for last hour, in millimeters",
+			"Snow volume for last hour, in millimetres",
 			[]string{"location"}, nil,
 		),
 		winddegree: prometheus.NewDesc("openweather_winddegree",

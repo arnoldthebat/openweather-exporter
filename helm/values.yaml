@@ -37,7 +37,7 @@ ow:
   # ow.apiKey -- Your Openweather API key
   apiKey: ""
   # ow.city -- City/Location in which to gather weather metrics. Separate multiple locations with | for example "New York, NY|Seattle, WA"
-  city: "New York, NY"
+  location: "New York, NY"
   # ow.degreesUnit -- Unit in which to show metrics (Kelvin, Fahrenheit or Celsius)
   degreesUnit: "C"
   # ow.language -- Language in which to show metrics

@@ -26,10 +26,10 @@ import (
 )
 
 var (
-	app         = kingpin.New("openweather-exporter", "Openweather Exporter for Openweather API").Author("Billy Wooten")
+	app         = kingpin.New("openweather-exporter", "Openweather Exporter for Openweather API").Author("Billy Wooten et al")
 	addr        = app.Flag("listen-address", "HTTP port to listen on").Envar("OW_LISTEN_ADDRESS").Default(":9091").String()
 	apiKey      = app.Flag("apikey", "Openweather API Key").Envar("OW_APIKEY").Required().String()
-	city        = app.Flag("city", "City for Openweather to gather metrics from.").Envar("OW_CITY").Default("New York, NY").String()
+	location    = app.Flag("location", "City, Village, Postcode, Zip").Envar("OW_LOCATION").Default("New York, NY").String()
 	degreesUnit = app.Flag("degrees-unit", "The base unit for temperature output. Fahrenheit or Celsius").Envar("OW_DEGREES_UNIT").Default("C").String()
 	language    = app.Flag("language", "The language for metric output").Envar("OW_LANGUAGE").Default("EN").String()
 )
@@ -46,7 +46,10 @@ func main() {
 
 	// Create a new instance of the weatherCollector and
 	// register it with the prometheus client.
-	weatherCollector := collector.NewOpenweatherCollector(*degreesUnit, *language, *apiKey, *city)
+	weatherCollector := collector.NewOpenweatherCollector(*degreesUnit, *language, *apiKey, *location)
+	defaultRegistry := prometheus.NewRegistry()
+	prometheus.DefaultRegisterer = defaultRegistry
+	prometheus.DefaultGatherer = defaultRegistry
 	prometheus.MustRegister(weatherCollector)
 
 	// This section will start the HTTP server and expose
